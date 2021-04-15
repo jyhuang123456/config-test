@@ -1,0 +1,40 @@
+server:
+  port: 8762
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    ip-address: true
+spring:
+  application:
+    name: user-server
+  rabbitmq:
+#    host: 192.168.70.190
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: huanya.com123
+  cloud:
+    bus:
+      trace:
+        enabled: true #开启消息跟踪
+
+ribbon:
+  MaxAutoRetries: 1 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试
+  MaxAutoRetriesNextServer: 1 #切换实例的重试次数
+  OkToRetryOnAllOperations: true # 对所有的操作请求都进行重试，如果是get则可以，如果是post,put等操作没有实现幂等的情况下是很危险的
+  ConnectTimeout: 1 #请求连接的超时时间
+  ReadTimeout: 1 #请求处理的超时时间
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' # 暴露监控端点
+  security:
+    enabled: false  #刷新时，关闭安全验证
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "127.0.0.1"
