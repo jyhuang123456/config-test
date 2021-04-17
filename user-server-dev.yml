@@ -38,3 +38,7 @@ management:
 hystrix:
   dashboard:
     proxy-stream-allow-list: "127.0.0.1"
+
+
+user:
+  myvalue: "jyhuang"
