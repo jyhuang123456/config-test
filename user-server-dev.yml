@@ -13,8 +13,8 @@ spring:
 #    host: 192.168.70.190
     host: 127.0.0.1
     port: 5672
-    username: admin
-    password: huanya.com123
+    username: guest
+    password: guest
   cloud:
     bus:
       trace:
