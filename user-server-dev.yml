@@ -19,6 +19,8 @@ spring:
     bus:
       trace:
         enabled: true #开启消息跟踪
+    config:
+      override-none: true
 
 ribbon:
   MaxAutoRetries: 1 #最大重试次数，当Eureka中可以找到服务，但是服务连不上时将会重试
